@@ -1,0 +1,142 @@
+# [START swagger]
+swagger: "2.0"
+info:
+  description: "A simple Google Cloud Endpoints API example."
+  title: "Endpoints Example"
+  version: "1.0.0"
+host: "bcdice-api.endpoints.[your-project].cloud.goog"
+# [END swagger]
+basePath: "/v1"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+schemes:
+- "https"
+paths:
+  "/version":
+    get:
+      description: "WebAPIのバージョンと、提供するBCDiceのバージョンが返却されます。"
+      operationId: "version"
+      produces:
+      - "application/javascript"
+      responses:
+        200:
+          description: "Version"
+          schema:
+            $ref: "#/definitions/jsonp"
+      parameters:
+      - description: "callback"
+        in: query
+        name: callback
+        required: true
+        schema:
+          $ref: "#/definitions/queryRequest"
+  "/systems":
+    get:
+      description: "WebAPIで利用できるダイスボットの一覧が返却されます。ここで得られる名前はダイスロールの実行時に利用します。ここで使われる名前は、各ダイスボットが gameType() で返す文字列です。"
+      operationId: "systems"
+      produces:
+      - "application/javascript"
+      responses:
+        200:
+          description: "Systems"
+          schema:
+            $ref: "#/definitions/jsonp"
+      parameters:
+      - description: "callback"
+        in: query
+        name: callback
+        required: true
+        schema:
+          $ref: "#/definitions/queryRequest"
+  "/systeminfo":
+    get:
+      description: "パラメータで指定したダイスボットの情報（ヘルプ等）が返却されます。"
+      operationId: "systeminfo"
+      produces:
+      - "application/javascript"
+      responses:
+        200:
+          description: "Systeminfo"
+          schema:
+            $ref: "#/definitions/jsonp"
+      parameters:
+      - description: "callback"
+        in: query
+        name: callback
+        required: true
+        schema:
+          $ref: "#/definitions/queryRequest"
+      - description: "system"
+        in: query
+        name: system
+        required: true
+        schema:
+          $ref: "#/definitions/queryRequest"
+  "/diceroll":
+    get:
+      description: "ダイスコマンドを実行します。"
+      operationId: "diceroll"
+      produces:
+      - "application/javascript"
+      responses:
+        200:
+          description: "Result"
+          schema:
+            $ref: "#/definitions/jsonp"
+      parameters:
+      - description: "callback"
+        in: query
+        name: callback
+        required: true
+        schema:
+          $ref: "#/definitions/queryRequest"
+      - description: "system"
+        in: query
+        name: callback
+        required: true
+        schema:
+          $ref: "#/definitions/queryRequest"
+      - description: "command"
+        in: query
+        name: command
+        required: true
+        schema:
+          $ref: "#/definitions/queryRequest"
+  "/onset":
+    get:
+      description: "Onset! Version 2.1.2に付属しているroll.rbと同じ挙動を提供します。"
+      operationId: "onset"
+      produces:
+      - "application/javascript"
+      responses:
+        200:
+          description: "Result"
+          schema:
+            $ref: "#/definitions/jsonp"
+      parameters:
+      - description: "list"
+        in: query
+        name: list
+        required: true
+        schema:
+          $ref: "#/definitions/queryRequest"
+      - description: "sys"
+        in: query
+        name: sys
+        required: true
+        schema:
+          $ref: "#/definitions/queryRequest"
+      - description: "text"
+        in: query
+        name: text
+        required: true
+        schema:
+          $ref: "#/definitions/queryRequest"
+definitions:
+  queryRequest:
+    type: "string"
+  jsonp:
+    type: "string"
+securityDefinitions:

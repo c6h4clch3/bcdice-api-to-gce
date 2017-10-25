@@ -1,0 +1,9 @@
+runtime: ruby
+env: flex
+entrypoint: bundle exec ruby bcdice-api/server.rb
+
+endpoints_api_service:
+  # The following values are to be replaced by information from the output of
+  # 'gcloud service-management deploy openapi.yaml' command.
+  name: ENDPOINTS SERVICE-NAME
+  config_id: ENDPOINTS CONFIG-ID

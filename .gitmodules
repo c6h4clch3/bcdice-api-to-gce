@@ -1,0 +1,3 @@
+[submodule "bcdice-api"]
+	path = bcdice-api
+	url = https://github.com/NKMR6194/bcdice-api.git
