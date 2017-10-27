@@ -1,6 +1,6 @@
 runtime: ruby
 env: flex
-entrypoint: bundle exec ruby bcdice-api/server.rb
+entrypoint: bundle exec puma -C bcdice-api/config/puma-heroku.rb
 
 endpoints_api_service:
   # The following values are to be replaced by information from the output of
