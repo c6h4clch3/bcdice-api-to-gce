@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.4.0)
+    backports (3.10.3)
     diff-lcs (1.2.5)
     domain_name (0.5.20160826)
       unf (>= 0.0.5, < 1.0.0)
@@ -17,11 +18,14 @@ GEM
     multi_json (1.12.1)
     multipart-post (2.0.0)
     netrc (0.11.0)
+    power_assert (1.1.1)
+    puma (3.10.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rake (12.2.1)
     rest-client (2.0.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
@@ -48,6 +52,18 @@ GEM
       rack (~> 1.5)
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
+    sinatra-contrib (1.4.7)
+      backports (>= 2.0)
+      multi_json
+      rack-protection
+      rack-test
+      sinatra (~> 1.4.0)
+      tilt (>= 1.3, < 3)
+    sinatra-jsonp (0.5.0)
+      multi_json (~> 1.8)
+      sinatra (>= 1.0)
+    test-unit (3.2.6)
+      power_assert
     tilt (2.0.5)
     unf (0.1.4)
       unf_ext
@@ -58,11 +74,16 @@ PLATFORMS
 
 DEPENDENCIES
   json
+  puma
   rack-test
+  rake
   rest-client
   rspec
   signet
   sinatra
+  sinatra-contrib
+  sinatra-jsonp
+  test-unit
 
 BUNDLED WITH
-   1.12.5
+   1.15.4

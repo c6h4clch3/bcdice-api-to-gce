@@ -30,8 +30,7 @@ paths:
         in: query
         name: callback
         required: true
-        schema:
-          $ref: "#/definitions/queryRequest"
+        type: "string"
   "/systems":
     get:
       description: "WebAPIで利用できるダイスボットの一覧が返却されます。ここで得られる名前はダイスロールの実行時に利用します。ここで使われる名前は、各ダイスボットが gameType() で返す文字列です。"
@@ -48,8 +47,7 @@ paths:
         in: query
         name: callback
         required: true
-        schema:
-          $ref: "#/definitions/queryRequest"
+        type: "string"
   "/systeminfo":
     get:
       description: "パラメータで指定したダイスボットの情報（ヘルプ等）が返却されます。"
@@ -66,14 +64,12 @@ paths:
         in: query
         name: callback
         required: true
-        schema:
-          $ref: "#/definitions/queryRequest"
+        type: "string"
       - description: "system"
         in: query
         name: system
         required: true
-        schema:
-          $ref: "#/definitions/queryRequest"
+        type: string
   "/diceroll":
     get:
       description: "ダイスコマンドを実行します。"
@@ -90,20 +86,17 @@ paths:
         in: query
         name: callback
         required: true
-        schema:
-          $ref: "#/definitions/queryRequest"
+        type: "string"
       - description: "system"
         in: query
-        name: callback
+        name: system
         required: true
-        schema:
-          $ref: "#/definitions/queryRequest"
+        type: "string"
       - description: "command"
         in: query
         name: command
         required: true
-        schema:
-          $ref: "#/definitions/queryRequest"
+        type: "string"
   "/onset":
     get:
       description: "Onset! Version 2.1.2に付属しているroll.rbと同じ挙動を提供します。"
@@ -120,23 +113,17 @@ paths:
         in: query
         name: list
         required: true
-        schema:
-          $ref: "#/definitions/queryRequest"
+        type: "string"
       - description: "sys"
         in: query
         name: sys
         required: true
-        schema:
-          $ref: "#/definitions/queryRequest"
+        type: "string"
       - description: "text"
         in: query
         name: text
         required: true
-        schema:
-          $ref: "#/definitions/queryRequest"
+        type: "string"
 definitions:
-  queryRequest:
-    type: "string"
   jsonp:
     type: "string"
-securityDefinitions:
