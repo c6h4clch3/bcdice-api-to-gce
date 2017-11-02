@@ -1,9 +1,6 @@
 # BCDice-api for Google Cloud Endpoint
 [BCDice-api](https://github.com/NKMR6194/bcdice-api)をGoogle Cloud Endpointで扱うための設定ファイル群
 
-## Demo
-https://c6h4clch3-bcdice-api.net/v1/version
-
 ## Dependent
 - Ruby
 - Bundler
